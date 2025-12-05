@@ -4,7 +4,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
-import Activities from './pages/Activities';
+import Activities from './components/Services';
 import ActivityDetail from './pages/ActivityDetail';
 import Team from './pages/Team';
 import Contact from './pages/Contact';
@@ -19,7 +19,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/sobre" element={<About />} />
-          <Route path="/atividades" element={<Activities />} />
+          <Route path="/atividades" element={<Activities showAll />} />
           <Route path="/atividades/:slug" element={<ActivityDetail />} />
           <Route path="/equipe" element={<Team />} />
           <Route path="/contato" element={<Contact />} />

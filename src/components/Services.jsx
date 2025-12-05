@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { MessageCircle, Leaf, Heart, UtensilsCrossed, Computer, BookOpen, Globe, Music, Users, ArrowRight } from 'lucide-react'
 
-export default function Services() {
+export default function Services({ showAll = false }) {
   const activities = [
     {
       id: 'roda-de-conversas',
@@ -101,7 +101,7 @@ export default function Services() {
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {activities.slice(0, 6).map((activity, index) => {
+          {(showAll ? activities : activities.slice(0, 6)).map((activity, index) => {
             const IconComponent = activity.icon;
             return (
               <motion.div
@@ -141,16 +141,18 @@ export default function Services() {
           })}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center"
-        >
-          <Link to="/atividades" className="btn-primary">
-            Ver Todas as Atividades
-          </Link>
-        </motion.div>
+        {!showAll && (
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center"
+          >
+            <Link to="/atividades" className="btn-primary">
+              Ver Todas as Atividades
+            </Link>
+          </motion.div>
+        )}
 
       </div>
     </section>
