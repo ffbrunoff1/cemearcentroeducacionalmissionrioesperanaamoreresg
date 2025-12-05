@@ -1,0 +1,137 @@
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
+import { MessageCircle, Leaf, Heart, UtensilsCrossed, Computer, BookOpen, Globe, Music, Users, ArrowRight } from 'lucide-react'
+
+export default function Services() {
+  const activities = [
+    {
+      id: 'roda-de-conversas',
+      title: 'Roda de Conversas',
+      description: 'Espaço de diálogo para famílias se expressarem e aprenderem, promovendo comunicação, autonomia e respeito.',
+      icon: MessageCircle,
+      image: 'https://qotdwocbcoirjlqjkjhq.supabase.co/storage/v1/object/public/user-files/a55d31ca-b53b-4996-884f-360d0648416d/1764949240865_xm2rk8seh1i_crianca_orando.jpeg',
+      color: 'from-blue-500 to-blue-600'
+    },
+    {
+      id: 'educacao-ambiental',
+      title: 'Educação Ambiental',
+      description: 'Cultiva mentalidade ecológica em crianças para enfrentarem desafios ambientais, promovendo consciência e sustentabilidade.',
+      icon: Leaf,
+      image: 'https://qotdwocbcoirjlqjkjhq.supabase.co/storage/v1/object/public/user-files/a55d31ca-b53b-4996-884f-360d0648416d/1764949238918_rqp32xy3bo_criancas_plnatando_flores.jpeg',
+      color: 'from-green-500 to-green-600'
+    },
+    {
+      id: 'atendimento-psicossocial',
+      title: 'Atendimento Psicossocial',
+      description: 'Fortalece laços familiares, avalia violências e transtornos, oferecendo apoio emocional e integração social.',
+      icon: Heart,
+      image: 'https://qotdwocbcoirjlqjkjhq.supabase.co/storage/v1/object/public/user-files/a55d31ca-b53b-4996-884f-360d0648416d/1764949242400_y7gd4j4y8fd_atividades_com_as_criancas_2.jpg',
+      color: 'from-pink-500 to-pink-600'
+    },
+    {
+      id: 'alimentacao',
+      title: 'Alimentação',
+      description: 'Fornece alimentação saudável com cardápio preparado para garantir boa qualidade de vida a crianças e adolescentes.',
+      icon: UtensilsCrossed,
+      image: 'https://qotdwocbcoirjlqjkjhq.supabase.co/storage/v1/object/public/user-files/a55d31ca-b53b-4996-884f-360d0648416d/1764949237076_nq61jtoagai_almoco_para_as_criancas.jpeg',
+      color: 'from-orange-500 to-orange-600'
+    },
+    {
+      id: 'informatica',
+      title: 'Informática',
+      description: 'Aulas para desenvolver uso correto do computador, ensinando hardware e software, com foco em segurança cibernética.',
+      icon: Computer,
+      image: 'https://qotdwocbcoirjlqjkjhq.supabase.co/storage/v1/object/public/user-files/a55d31ca-b53b-4996-884f-360d0648416d/1764949251616_kelat9fz35g_aula_de_informatica_2.jpg',
+      color: 'from-purple-500 to-purple-600'
+    },
+    {
+      id: 'reforco-escolar',
+      title: 'Reforço Escolar',
+      description: 'Aulas de reforço personalizadas para atender necessidades educacionais específicas de cada criança e adolescente.',
+      icon: BookOpen,
+      image: 'https://qotdwocbcoirjlqjkjhq.supabase.co/storage/v1/object/public/user-files/a55d31ca-b53b-4996-884f-360d0648416d/1764949241576_7lkv2n75929_reforco_escolar.jpeg',
+      color: 'from-indigo-500 to-indigo-600'
+    },
+    {
+      id: 'ingles',
+      title: 'Inglês',
+      description: 'Ensino incluído com foco em gramática, verbos e conversação diária por meio de exercícios lúdicos e músicas.',
+      icon: Globe,
+      image: 'https://qotdwocbcoirjlqjkjhq.supabase.co/storage/v1/object/public/user-files/a55d31ca-b53b-4996-884f-360d0648416d/1764949232876_j474jc3fcda_aula_de_musica.jpg',
+      color: 'from-teal-500 to-teal-600'
+    },
+    {
+      id: 'musica',
+      title: 'Música',
+      description: 'Aulas de violão e bateria que promovem expressão criativa e trabalho em equipe, desenvolvendo habilidades artísticas.',
+      icon: Music,
+      image: 'https://qotdwocbcoirjlqjkjhq.supabase.co/storage/v1/object/public/user-files/a55d31ca-b53b-4996-884f-360d0648416d/1764949232876_j474jc3fcda_aula_de_musica.jpg',
+      color: 'from-red-500 to-red-600'
+    },
+    {
+      id: 'danca',
+      title: 'Dança',
+      description: 'Ensina coreografias, permitindo apresentações das habilidades adquiridas, promovendo expressão cultural e confiança corporal.',
+      icon: Users,
+      image: 'https://qotdwocbcoirjlqjkjhq.supabase.co/storage/v1/object/public/user-files/a55d31ca-b53b-4996-884f-360d0648416d/1764949245368_wek9gtv5qko_atividades_com_as_criancas_5.png',
+      color: 'from-yellow-500 to-yellow-600'
+    }
+  ]
+
+  return (
+    <section className="py-20 bg-gradient-to-br from-white to-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <span className="inline-block bg-primary-100 text-primary-600 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+            NOSSAS ATIVIDADES
+          </span>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            Veja Como <span className="text-primary-600">Ajudamos</span>
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Oferecemos uma variedade de atividades especialmente desenvolvidas para o crescimento 
+            integral de crianças e adolescentes
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          {activities.map((activity, index) => {
+
+const isActive = location.pathname === item.path
+
+              return (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  onClick={() => setIsMenuOpen(false)}
+                  className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition-all duration-300 ${
+                    isActive
+                      ? 'text-primary-600 bg-primary-50'
+                      : 'text-secondary-600 hover:text-primary-600 hover:bg-primary-50'
+                  }`}
+                >
+                  <IconComponent className="w-5 h-5" />
+                  <span className="font-medium">{item.label}</span>
+                </Link>
+              )
+            })}
+            <div className="flex flex-col space-y-3 pt-4 border-t border-gray-100">
+              <HeaderButton to="/voluntario" variant="secondary">
+                Seja Voluntário
+              </HeaderButton>
+              <HeaderButton to="/doacoes">
+                Doe Agora
+              </HeaderButton>
+            </div>
+          </div>
+        </motion.div>
+      )}
+    </motion.header>
+  )
+}
