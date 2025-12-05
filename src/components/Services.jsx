@@ -101,37 +101,58 @@ export default function Services() {
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {activities.map((activity, index) => {
-
-const isActive = location.pathname === item.path
-
-              return (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  onClick={() => setIsMenuOpen(false)}
-                  className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition-all duration-300 ${
-                    isActive
-                      ? 'text-primary-600 bg-primary-50'
-                      : 'text-secondary-600 hover:text-primary-600 hover:bg-primary-50'
-                  }`}
-                >
-                  <IconComponent className="w-5 h-5" />
-                  <span className="font-medium">{item.label}</span>
+          {activities.slice(0, 6).map((activity, index) => {
+            const IconComponent = activity.icon;
+            return (
+              <motion.div
+                key={activity.id}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="group"
+              >
+                <Link to={`/atividades/${activity.id}`} className="block h-full">
+                  <div className="relative h-full bg-white rounded-2xl shadow-lg overflow-hidden card-hover border border-gray-100">
+                    <div className="relative h-48">
+                      <img 
+                        src={activity.image} 
+                        alt={activity.title} 
+                        className="w-full h-full object-cover"
+                      />
+                      <div className={`absolute inset-0 bg-gradient-to-t ${activity.color} opacity-70`}></div>
+                      <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm p-3 rounded-xl">
+                        <IconComponent className="w-6 h-6 text-white" />
+                      </div>
+                    </div>
+                    <div className="p-6 flex flex-col">
+                      <h3 className="text-xl font-bold text-gray-900 mb-3 flex-grow">{activity.title}</h3>
+                      <p className="text-gray-600 leading-relaxed mb-4 h-20 overflow-hidden">
+                        {activity.description}
+                      </p>
+                      <div className="flex items-center text-primary-600 font-semibold group-hover:translate-x-1 transition-transform duration-300 mt-auto">
+                        <span>Saiba Mais</span>
+                        <ArrowRight className="ml-2 w-4 h-4" />
+                      </div>
+                    </div>
+                  </div>
                 </Link>
-              )
-            })}
-            <div className="flex flex-col space-y-3 pt-4 border-t border-gray-100">
-              <HeaderButton to="/voluntario" variant="secondary">
-                Seja Voluntário
-              </HeaderButton>
-              <HeaderButton to="/doacoes">
-                Doe Agora
-              </HeaderButton>
-            </div>
-          </div>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-center"
+        >
+          <Link to="/atividades" className="btn-primary">
+            Ver Todas as Atividades
+          </Link>
         </motion.div>
-      )}
-    </motion.header>
+
+      </div>
+    </section>
   )
 }
